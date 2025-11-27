@@ -1,11 +1,11 @@
-name : 06 Passing Data Between Steps
+name: 06 Passing Data Between Steps
 
 on:
   workflow_dispatch: # This event triggers the workflow manually
 
 jobs:
   data-Passing:
-    runs-on: ubuntu- 22.04 # The runner environment (Ubuntu in this case)
+    runs-on: ubuntu-22.04 # The runner environment (Ubuntu in this case)
 
     steps:
       - name: Create Data
