@@ -1,0 +1,16 @@
+name: 04 workflow_run
+
+on:
+  workflow_run:
+    workflows: ["04-workflow_dispatch"] # Name of the workflow to monitor
+    types:
+      - completed # Trigger when the monitored workflow is completed
+
+jobs:
+  echo-hi-all:
+    runs-on: ubuntu-latest # The runner environment (Ubuntu in this case)
+
+    steps:
+      - name: Echo "Hi All"
+        run: | 
+          echo "Hi all"
