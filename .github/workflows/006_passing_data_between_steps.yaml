@@ -1,0 +1,18 @@
+name : 06 Passing Data Between Steps
+
+on:
+  workflow_dispatch: # This event triggers the workflow manually
+
+jobs:
+  data-Passing:
+    runs-on: ubuntu- 22.04 # The runner environment (Ubuntu in this case)
+
+    steps:
+      - name: Create Data
+        id: sender
+        run: |
+          echo "message=Shiran" >> $GITHUB_OUTPUT
+
+      - name: Recieve Data
+        run: |
+          echo "The message from the previous step is: ${{ steps.sender.outputs.message }}"
