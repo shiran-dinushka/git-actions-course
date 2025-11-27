@@ -1,0 +1,23 @@
+name: 04-workflow_dispatch
+
+on:
+  workflow_dispatch: # This event triggers the workflow manually
+    inputs:
+      username:
+        description: 'Username'
+        required: true
+        default: 'Shiran'
+      age:
+        description: 'Age'
+        required: true
+        type: number
+
+jobs:
+  echo-username-age:
+    runs-on: ubuntu-latest # The runner environment (Ubuntu in this case)
+
+    steps:
+      - name: Echo Username and Age
+        run: |
+          echo "Username: ${{ inputs.username }}"
+          echo "Age: ${{ inputs.age }}"
