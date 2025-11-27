@@ -12,7 +12,7 @@ jobs:
           run: ls -la ${{ github.workspace }} # List files in the GitHub workspace case)
 
         - name: Checkout source code
-          uses: actions/checkout@v4 # Action to checkout the repository
+          uses: actions/checkout@v6 # Action to checkout the repository
 
         - name: List space again
           run: ls -la ${{ github.workspace }} # List files in the GitHub workspace
