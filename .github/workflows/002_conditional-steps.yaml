@@ -1,0 +1,37 @@
+name: 02 Conditional Steps
+
+on:
+  workflow_dispatch: # This event triggers the workflow manually
+
+jobs:
+  examople_job:
+    runs-on: ubuntu-latest # The runner environment (Ubuntu in this case)
+
+    steps:
+      - name: Step 1 - Exit Code 0
+        id: successful_step
+        run: |
+          echo "Exit Code 0"
+          exit 0 # Success (exit code 0)
+        shell: bash # If you want you can change the shell per step
+
+      - name: Step 2 - Excute If Previous Succeeded
+      # The syntax bellow ${{}} is expression syntax in github actions
+      #Success and failure are status expressions
+        if: ${{success()}} # This step runs only if all previous steps were successful
+        run: | 
+          echo "Running because the previous step succeeded."
+
+      - name: Step 3 - I am Failing
+        run: |
+          echo "I am failing"
+          exit code 1
+
+      - name: Step 4 - I will never Excute
+        run: |
+          echo "I will never excute"
+          
+      - name: Step 5 - Execute on Workflow Failure
+        if: ${{failure()}} # This step runs only if any previous step has failed
+        run: |
+          echo "Workflow failed"
