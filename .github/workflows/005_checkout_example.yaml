@@ -1,0 +1,18 @@
+name: 05 Checkout Example
+
+on:
+  workflow_dispatch: # This event triggers the workflow manually
+
+
+jobs:  
+  demo-checkout:
+    runs-on: ubuntu-latest # The runner environment (Ubuntu in
+    steps:
+        - name: List space
+          run: ls -la ${{ github.workspace }} # List files in the GitHub workspace case)
+
+        - name: Checkout source code
+          uses: actions/checkout@v4 # Action to checkout the repository
+
+        - name: List space again
+          run: ls -la ${{ github.workspace }} # List files in the GitHub workspace
