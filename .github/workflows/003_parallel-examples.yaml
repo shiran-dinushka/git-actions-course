@@ -10,11 +10,11 @@ jobs:
       - name: Linting 
         run: echo "Running linting..."
 
-    unit_tests:
-      runs-on: ubuntu-latest # The runner environment (Ubuntu in this case)
-      steps:
-        - name: Unit Tests
-          run: echo "Running unit tests..."
+  unit_tests:
+    runs-on: ubuntu-latest # The runner environment (Ubuntu in this case)
+    steps:
+      - name: Unit Tests
+        run: echo "Running unit tests..."
     
   integration_tests:
     runs-on: ubuntu-latest # The runner environment (Ubuntu in this case)
