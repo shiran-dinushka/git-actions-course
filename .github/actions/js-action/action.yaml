@@ -1,0 +1,13 @@
+name: 'Simple Param action'
+description: 'Prints the argument and stores it in the file'
+inputs:
+  name:
+    description: 'First argument value'
+    required: true
+    default: 'Shiran'
+outputs:
+  processed-name:
+    description: 'Processed name'
+runs:
+  using: 'node20'
+  main: 'index.js'
