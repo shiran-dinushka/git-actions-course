@@ -102,6 +102,8 @@ jobs:
           format: "json"
           outputs: "trivy-results.json"
           severity: "CRITICAL,HIGH"
+      - name: Directory check
+        run: ls -la ${{ github.workspace }}
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
