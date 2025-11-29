@@ -60,7 +60,7 @@ jobs:
           outputs: type=tar,dest=./backend_image.tar
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: image
           path: /tmp/image.tar
@@ -70,7 +70,7 @@ jobs:
     needs: [build-image]
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: image
           path: /tmp
@@ -87,7 +87,7 @@ jobs:
     needs: [build-image]
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           name: image
           path: /tmp
@@ -103,7 +103,7 @@ jobs:
           outputs: "trivy-report.json"
           severity: "CRITICAL,HIGH"
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: trivy-results
           path: ${{ github.workspace }}/trivy-results.json
@@ -113,7 +113,7 @@ jobs:
     needs: [integration-tests, vulnerability-scan]
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: image
           path: /tmp
