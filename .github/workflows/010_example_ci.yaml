@@ -100,7 +100,7 @@ jobs:
         with:
           image-ref: ${{ vars.DOCKER_HUB_IMAGE }}:${{ inputs.image-tag }}
           format: "json"
-          outputs: "trivy-report.json"
+          outputs: "trivy-results.json"
           severity: "CRITICAL,HIGH"
       - name: Upload results
         uses: actions/upload-artifact@v4
